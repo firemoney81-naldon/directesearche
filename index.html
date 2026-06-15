@@ -1,23 +1,721 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <!-- Schema.org 통합 JSON-LD 구조화 데이터 -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "중고차보험료 완전 분석 및 2026년 맞춤형 절약 안내서",
+      "description": "2026년 기준 중고차보험료 평균 비용 분석 및 나이별, 차종별 예상 금액을 확인하고, 신규 가입 혜택과 저렴한 보험사 비교를 통해 비용을 낮추는 구체적인 가이드를 제공합니다.",
+      "url": "https://example.com/used-car-insurance"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "중고차보험료 평균 금액은 어느 정도인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "운전자의 나이, 운전 경력, 사고 이력 및 차량 연식에 따라 큰 차이가 있으나, 무사고 경력이 있는 30대 후반 운전자 기준 평균 연간 50만 원에서 80만 원 선으로 산정됩니다. 신규 가입자나 20대 연령대의 경우 100만 원에서 150만 원 이상까지 예상 요금이 상승할 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "신차 보험료와 중고차 보험료의 차이점은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "주요 차이점은 차량 가액에 기인합니다. 중고차는 연식이 오래될수록 차량 가액이 낮아져 자기차량손해(자차) 담보 비용이 크게 저렴해집니다. 다만, 구형 차량일수록 최신 안전장치 할인 특약 적용이 어려울 수 있어 대인 및 대물 배상 요율 자체는 높게 적용될 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "다이렉트 비교 사이트를 활용하면 얼마나 저렴해지나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "오프라인 설계사를 통하는 것보다 다이렉트 온라인 가입 경로를 이용하는 경우 평균 15%에서 20%의 비용 절감 효과가 있습니다. 여기에 마일리지 특약, 블랙박스 할인, 티맵 안전운전 점수 할인 등을 추가 결합하면 연간 최대 40% 이상의 금액을 절약할 수 있습니다."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "중고차보험료 절약 핵심 단계",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "정확한 차량 가액 및 차량 정보 조회"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "온라인 다이렉트 보험사별 모의 견적 비교"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "안전장치 및 주행거리 할인 특약 추가 설계"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "신규 가입 혜택 및 사은품 이벤트 적용"
+        }
+      ]
+    }
+  ]
+  </script>
+
+  <style>
+    :root {
+      --primary-color: #3b5998;
+      --secondary-color: #6d84b4;
+      --accent-color: #8b9dc3;
+      --background-color: #f7f9fc;
+      --surface-color: #ffffff;
+      --text-main: #333333;
+      --text-muted: #666666;
+      --border-color: #e1e8ed;
+      --table-header: #edf2f7;
+    }
+
+    body {
+      font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+      line-height: 1.8;
+      color: var(--text-main);
+      background-color: var(--background-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: bold;
+    }
+
+    header p {
+      margin: 15px 0 0 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    nav {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 30px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    nav ul li {
+      margin: 5px 10px;
+    }
+
+    nav ul li a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 40px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      border-left: 6px solid var(--secondary-color);
+      padding-left: 15px;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      color: var(--secondary-color);
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .info-box {
+      background-color: #f0f4f8;
+      border-left: 4px solid var(--primary-color);
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+    }
+
+    table, th, td {
+      border: 1px solid var(--border-color);
+    }
+
+    th {
+      background-color: var(--table-header);
+      padding: 12px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    td {
+      padding: 12px;
+      text-align: center;
+    }
+
+    .form-section {
+      background-color: #f7f9fa;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 30px;
+      margin: 40px 0;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      box-sizing: border-box;
+      background-color: #ffffff;
+    }
+
+    .btn-submit {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--secondary-color);
+    }
+
+    .result-box {
+      margin-top: 25px;
+      padding: 20px;
+      background-color: #eef9f0;
+      border: 1px solid #c2e2c5;
+      border-radius: 4px;
+      display: none;
+    }
+
+    .keyword-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .keyword-tag {
+      background-color: var(--table-header);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .external-links ul {
+      padding-left: 20px;
+    }
+
+    .external-links li {
+      margin-bottom: 10px;
+    }
+
+    .external-links a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .external-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>중고차보험료 종합 안내서 및 2026년 가격 절약 가이드</h1>
+    <p>나이별 평균 비용 분석부터 합리적인 다이렉트 견적 비교까지</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#section1">2026년 중고차보험료 전망</a></li>
+      <li><a href="#section2">차종별 평균 비용 비교</a></li>
+      <li><a href="#section3">나이별 예상 금액표</a></li>
+      <li><a href="#section4">보험사 가입 혜택 분석</a></li>
+      <li><a href="#section5">커뮤니티 내돈내산 후기</a></li>
+      <li><a href="#calculator">실시간 보험료 계산기</a></li>
+      <li><a href="#faq">자주 묻는 질문 (FAQ)</a></li>
+      <li><a href="#links">공인 정보처 안내</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="section1">
+      <h2>1. 2026년 중고차보험료 최신 동향 및 시장 전망</h2>
+      <p>
+        2026년 국내 자동차 보험 시장은 인공지능 분석과 개인 맞춤형 운전 습관 연계 제도의 정착으로 급격한 구조 변화를 맞이하고 있습니다. 기존의 획일적인 연식 기준 평가에서 벗어나, 빅데이터와 인공지능 기술이 각 가입자의 정확한 운전 성향을 측정하여 합리적인 보험 요율을 실시간으로 제시하는 구조가 되었습니다.
+      </p>
+      <p>
+        최근 많은 운전자들은 네이버 및 구글 검색 엔진뿐만 아니라 유튜브, 트위터, 인스타그램, 페이스북 등의 소셜 네트워크 채널에서 스마트폰 앱을 활용한 실시간 다이렉트 비교 가입 방식을 상세히 학습하고 있습니다. 특히 인공지능 기반 대화형 도구인 제미나이(Gemini)나 챗지피티(ChatGPT)와 같은 대형 언어 모델 서비스를 이용해 설계사가 추천하는 약관의 문제점을 스스로 보완하고, 자신에게 맞는 가장 싼곳과 전문 대리점의 요금을 분석하는 추세가 강화되었습니다.
+      </p>
+      <div class="info-box">
+        <strong>전문가 제언:</strong> 2026년 이후의 중고차보험료 시장은 차량 노후도에 따른 정비 비용 상승 한계와 첨단 자율주행 보조 시스템의 보급 확대로 인해 요율 격차가 크게 발생하고 있습니다. 단순한 요율 테이블에 머무르지 말고, 능동형 안전장치 유무를 세밀하게 고지해야 비용 누수를 막을 수 있습니다.
+      </div>
+    </section>
+
+    <section id="section2">
+      <h2>2. 국산 및 수입 중고차 차종별 평균 비용 비교</h2>
+      <p>
+        많은 가입 예정자들이 궁금해하는 부분 중 하나는 차종에 따라 산정되는 실제 예상 금액의 격차입니다. 동일한 배기량이라 하더라도 국산 모델과 수입 모델의 부품 단가 및 자차 손해 산정 비율에 따라 큰 가격 차이가 발생합니다. 
+      </p>
+      <p>
+        예컨대 준중형 세단인 아반떼AD 중고 모델과 중형 세단인 쏘나타DN8, 그리고 대형 차종인 그랜저IG 모델은 각기 다른 차량가액이 산정됩니다. 수입차의 경우 부품 수입 단가 산출 비용이 추가되어 국산차 대비 대물 배상 한도를 높여야 하므로 보험사 자체 요율이 한층 더 까다롭게 매겨집니다.
+      </p>
+
+      <h3>차종별 기본 예상 금액 및 자차 담보별 격차 테이블</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>구분 (차종)</th>
+            <th>평균 차량가액 (2026 기준)</th>
+            <th>기본 종합 담보비용 (원)</th>
+            <th>예상 자차 보장액 (원)</th>
+            <th>최종 합산 평균가 (원)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>국산 준중형 (아반떼급)</td>
+            <td>1,200만 원 선</td>
+            <td>410,000</td>
+            <td>140,000</td>
+            <td>550,000</td>
+          </tr>
+          <tr>
+            <td>국산 중형 (쏘나타/K5급)</td>
+            <td>1,800만 원 선</td>
+            <td>470,000</td>
+            <td>210,000</td>
+            <td>680,000</td>
+          </tr>
+          <tr>
+            <td>국산 대형 (그랜저급)</td>
+            <td>2,500만 원 선</td>
+            <td>550,000</td>
+            <td>320,000</td>
+            <td>870,000</td>
+          </tr>
+          <tr>
+            <td>수입 중형 (3시리즈/C클래스)</td>
+            <td>2,800만 원 선</td>
+            <td>690,000</td>
+            <td>610,000</td>
+            <td>1,300,000</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        위 수치는 무사고 운전 경력 5년 이상의 30대 후반 피보험자 기준 통계이며, 사고 이력이나 주행거리에 따라 개별 견적 산출 시 변동폭이 클 수 있습니다. 자차 항목의 가액 평가는 매 분기 보험개발원에서 책정하는 공시 기준을 엄격히 적용받으므로, 오래된 연식일수록 요금 중 차량 수리 보장 파트의 비중은 작아집니다.
+      </p>
+    </section>
+
+    <section id="section3">
+      <h2>3. 나이별 중고차보험료 예상 견적 및 할인 혜택</h2>
+      <p>
+        연령은 자동차 사고 발생율과 직결되는 아주 중요한 평가지표입니다. 신규 가입 비중이 높고 운전 숙련도가 비교적 높지 않은 만 21세 및 만 26세 이하 구간의 청년층은 첫 가입 시 매우 높은 요율 구간을 통과하게 됩니다. 
+      </p>
+      <p>
+        반면, 30대와 40대 운전자의 경우 가입 유지 이력과 함께 장기 무사고 경력이 더해져 시장에서 가장 저렴한곳을 수월하게 찾을 수 있습니다. 아래 정리된 나이별 조건표를 확인하여 본인의 생애 주기에 맞춰 준비해야 하는 대략적인 예산을 가늠해 보시기 바랍니다.
+      </p>
+
+      <h3>연령대별 최초 가입 및 무사고 3년 차 요율 변화</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>가입 연령 구분</th>
+            <th>신규 가입 기준 (원)</th>
+            <th>무사고 3년 유지 시 (원)</th>
+            <th>핵심 할인 적용 수단</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>만 21세 이하 구간</td>
+            <td>1,850,000</td>
+            <td>1,210,000</td>
+            <td>부모님 지정동일 가입, 티맵 점수 연동</td>
+          </tr>
+          <tr>
+            <td>만 26세 이하 구간</td>
+            <td>1,250,000</td>
+            <td>810,000</td>
+            <td>군 운전병 경력인정, 안전 장치 등록</td>
+          </tr>
+          <tr>
+            <td>만 30세 이상 구간</td>
+            <td>780,000</td>
+            <td>540,000</td>
+            <td>마일리지 특약, 부부 및 1인 제한 설정</td>
+          </tr>
+          <tr>
+            <td>만 43세 이상 부부한정</td>
+            <td>620,000</td>
+            <td>430,000</td>
+            <td>자녀 할인 특약, 커넥티드카 서비스 연계</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        장단점이 명확한 이 나이별 분포 구조 속에서 젊은 운전자라면 무턱대고 독립형 계정으로 진입하는 것보다 부모님 명의의 기존 자동차보험에 패밀리 1인 지정을 통해 경력 인정 제도를 활용하는 방안이 유리합니다. 이를 통해 가입 기간을 적립한 후, 향후 만 26세를 기점으로 단독 분할하여 저렴하게 재편성하는 전략을 강력히 권장합니다.
+      </p>
+    </section>
+
+    <section id="section4">
+      <h2>4. 주요 다이렉트 보험사 가입 혜택 및 사은품 비교</h2>
+      <p>
+        온라인 마켓에서 경쟁하는 메이저 다이렉트 전문 브랜드들은 매달 신규 고객 유치를 위한 프로모션을 활발히 집행합니다. 이러한 마케팅은 신규 및 갱신 고객 확보를 위해 현금지원 형태나 신세계, 이마트, 네이버페이 모바일 상품권 지급 등의 혜택으로 가입자에게 제공됩니다.
+      </p>
+      <p>
+        주요 다이렉트 브랜드들의 장단점과 혜택 적용 조건을 꼼꼼히 비교하면 가입 당일 약 2만 원에서 최대 3만 원 상당의 사은품 및 추가적인 지원금 캐시백 혜택을 온전히 누릴 수 있습니다. 다만 카드사 결제 이벤트를 중복 적용받을 수 있는지 사전 체크하는 과정이 반드시 수반되어야 합니다.
+      </p>
+
+      <h3>메이저 브랜드 다이렉트 채널별 혜택 현황</h3>
+      <ul>
+        <li><strong>A화재 다이렉트:</strong> 신규 차량 보험 가입 및 요율 조회 시 최대 1만 원 네이버페이 포인트 증정, 카드 신규 발급 연계 시 최대 3만 원의 현금지원 혜택 제공.</li>
+        <li><strong>B해상 다이렉트:</strong> 주행거리 마일리지 환급률 최대 35% 제공으로 연간 운행이 적은 세컨드카 유저에게 최적화, 모바일 상품권 및 간편 결제 제휴 이벤트 상시 운영.</li>
+        <li><strong>C손해보험 다이렉트:</strong> 티맵 안전운전 기준 점수 만족 시 추가 12.3% 다이렉트 특별 할인 적용, 블랙박스 및 빌트인캠 기본 장착 차종의 요율 감면 혜택 특화.</li>
+        <li><strong>D해상 다이렉트:</strong> 6세 이하 자녀가 있는 가정의 경우 자녀 할인율 업계 최고 수준 반영, 모바일 전용 앱 사용 시 서버 응답 속도가 빠르고 계약 관리가 우수함.</li>
+      </ul>
+      <p>
+        각 회사별로 자사가 보유한 누적 손해율 통계에 기초하여 특정 연령과 특정 차종에 유리한 요율 구간을 상호 다르게 책정합니다. 따라서 특정 회사가 무조건 싼곳이라고 단정 지을 수 없으며, 종합적인 모의 견적을 바탕으로 각자의 조건과 대입해보는 과정이 누락되지 않아야 합니다.
+      </p>
+    </section>
+
+    <section id="section5">
+      <h2>5. 커뮤니티 실제 내돈내산 가입 후기 및 이용 패턴 분석</h2>
+      <p>
+        차량 관련 대형 웹 커뮤니티인 디시인사이드, 보배드림, 에펨코리아(펨코) 등지에서 활동하는 운전자들의 실제 이용 경험담은 신뢰도 높은 필터링 자료를 제공해 줍니다. 수많은 실제 오너들은 내돈내산 결제 검증 후기를 가감 없이 공유하며, 계약 시 실수하기 쉬운 보장 범위에 대해 적극적인 논의를 펼칩니다.
+      </p>
+      <div class="info-box">
+        <strong>커뮤니티 주요 토픽 요약:</strong> 보배드림 게시판의 조사 결과에 따르면 대물배상 한도는 기존 2억 원 또는 3억 원 수준에서 최근 도로 위의 고급 수입차 급증 현실을 고려해 최소 5억 원 이상, 가급적 10억 원 한도로 상향하는 것이 대세입니다. 한도를 5억 원에서 10억 원으로 상향 조정하더라도 실제 연간 요금 추가액은 몇 천 원 안팎에 불과하기 때문입니다.
+      </div>
+      <p>
+        디시인사이드 자동차 갤러리에서는 신규 라이더들이 첫 중고차를 산 후 자차 담보 가입을 생략하는 경우의 맹점을 경고하고 있습니다. 저렴한 연식의 차량이라는 이유로 자차 보장을 아예 제외했다가 예기치 못한 단독 사고나 노면 결빙 미끄러짐으로 차량을 폐차하게 되어 경제적인 낭비를 겪었다는 솔직한 내돈내산 사연들이 꾸준히 지적을 받고 있습니다. 단점보다 장점이 월등히 높은 자기차량손해 특약은 자기부담금 비율을 최적화하여 필히 유지하는 쪽이 안전합니다.
+      </p>
+    </section>
+
+    <section id="calculator">
+      <h2>6. 맞춤형 중고차보험료 예상 견적 시뮬레이터</h2>
+      <p>
+        아래 입력 양식을 성실히 채워주시면 입력하신 정보를 바탕으로 2026년 요율 가중치 로직이 적용된 간이 예상 요금을 즉각 연산합니다. 본 연산 모듈은 입력값을 외부로 무단 전송하지 않으며, 브라우저 내부에서 즉시 구동되어 개인정보 유출 우려 없이 안심하고 체험할 수 있습니다.
+      </p>
+
+      <div class="form-section">
+        <form id="calcForm" onsubmit="return false;">
+          <div class="form-group">
+            <label for="driverAge">운전자 만 나이</label>
+            <input type="number" id="driverAge" placeholder="예: 31" required min="18" max="99">
+          </div>
+
+          <div class="form-group">
+            <label for="carType">중고차 분류 선택</label>
+            <select id="carType" required>
+              <option value="compact">경차 (모닝/레이 등)</option>
+              <option value="sedan_mid">준중형/중형 세단 (아반떼/쏘나타 등)</option>
+              <option value="sedan_large">대형 세단 (그랜저/G80 등)</option>
+              <option value="suv">SUV 및 RV 계열 (투싼/쏘렌토 등)</option>
+              <option value="imported">수입 중형급 이상</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="experience">운전 경력 선택</label>
+            <select id="experience" required>
+              <option value="0">신규 가입 (최초 등록)</option>
+              <option value="1">1년 이상 ~ 3년 미만</option>
+              <option value="3">3년 이상 ~ 5년 미만</option>
+              <option value="5">5년 이상 베테랑 운전자</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="accidentHistory">최근 3년 이내 사고 이력</label>
+            <select id="accidentHistory" required>
+              <option value="no">없음 (완전 무사고)</option>
+              <option value="yes_small">소액 물적 사고 1회</option>
+              <option value="yes_big">대인 대물 포함 큰 사고 이력 존재</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn-submit" onclick="performInsuranceCalculation()">맞춤형 예상 금액 계산하기</button>
+        </form>
+
+        <div id="calcResult" class="result-box">
+          <h3 style="margin-top:0; color:#2e7d32;">임시 모의 견적 분석 결과</h3>
+          <p id="resultText"></p>
+          <p style="font-size:0.85rem; color:#666; margin-bottom:0;">
+            본 계산기의 결과는 평균 통계치를 바탕으로 추정한 간이 예상치이며, 개별적인 특약 조건, 안전 운전 점수, 각 사별 당해 분기 손해율 변동에 따라 실제 다이렉트 갱신 청구액과는 일정한 편차가 발생할 수 있습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="section7">
+      <h2>7. 가입 단계별 체크리스트 및 특약 설계 비결</h2>
+      <p>
+        가장 저렴하고 보장이 알찬 조합을 만들기 위해서는 다음과 같은 체계적인 의사결정 프로세스를 따르는 것이 현명합니다.
+      </p>
+      <ul>
+        <li>
+          <strong>1단계: 대물 배상 한도는 무조건 높게 설정</strong><br>
+          앞서 보배드림 등 대형 커뮤니티 팁에서 다루었듯이 대물 한도는 5억 원 이상으로 증액 설정하여 고가 차량과의 추돌 사고 리스크를 미연에 방지합니다.
+        </li>
+        <li>
+          <strong>2단계: 자기신체사고 대신 자동차상해(자상) 선택</strong><br>
+          유사시 본인과 동승자의 병원 치료비 및 위자료, 휴업 손실액까지 든든하게 보장받기 위해서는 자기신체사고 담보가 아닌 자동차상해 담보를 고르는 방향을 권장합니다.
+        </li>
+        <li>
+          <strong>3단계: 첨단 장비 및 플랫폼 연동 특약 일괄 승인</strong><br>
+          블랙박스 고지, 차선 이탈 경보 장치, 전방 충돌 방지 제어기 탑재 여부를 정밀 등록하여 추가 할인을 누락 없이 수령해야 합니다.
+        </li>
+        <li>
+          <strong>4단계: 주행거리 마일리지 환급 챙기기</strong><br>
+          연간 주행거리가 15,000km 미만인 경우 운행 종료 단계에서 계기판 사진 등록 절차를 밟아 사후 정산으로 상당액의 요금을 현금 캐시백 형태로 안전하게 반환받아야 합니다.
+        </li>
+      </ul>
+    </section>
+
+    <section id="faq">
+      <h2>8. 자주 묻는 질문 및 상세 답변 (FAQ)</h2>
+      <p>
+        중고차 구매 후 최초 보험을 준비하는 과정에서 많은 이들이 혼란스러워하는 질문들을 선별하여 상세하게 풀이해 드립니다.
+      </p>
+
+      <div style="margin-bottom: 25px;">
+        <h4 style="font-size: 1.15rem; color: var(--primary-color); margin-bottom: 5px;">Q1: 중고차를 계약하는 당일에 즉시 보험에 가입해야 하나요?</h4>
+        <p style="margin-left: 10px;">
+          그렇습니다. 법적으로 책임보험 가입증명서가 구청이나 차량등록사업소에 전산 제출되어야만 최종적으로 차량 명의 이전 등록 절차가 마무리됩니다. 따라서 출고 당일 오전 또는 전날 밤에 모바일 다이렉트 시스템을 이용해 차대번호 혹은 이전 예정 번호판 정보로 신규 등록을 완료하셔야 정상 출고가 보장됩니다.
+        </p>
+      </div>
+
+      <div style="margin-bottom: 25px;">
+        <h4 style="font-size: 1.15rem; color: var(--primary-color); margin-bottom: 5px;">Q2: 오래된 연식의 차량도 자차 담보 가입이 권장되나요?</h4>
+        <p style="margin-left: 10px;">
+          차량가액이 아주 낮게 감가된 노후 세단의 경우 자차 비용 차출 폭이 적으므로 부담은 덜하지만, 단독 사고 시 전손 처리를 받는 금액 역시 미미하여 망설여질 수 있습니다. 다만 도로 위의 타인과의 마찰, 불의의 침수 사고, 뺑소니 사건 등에 직면했을 때 내 보험사를 통해 선처리를 편안하게 받기 위해서라도 최소의 조건으로 자차를 넣어두는 쪽이 장기적으로 정신건강에 유익합니다.
+        </p>
+      </div>
+
+      <div style="margin-bottom: 25px;">
+        <h4 style="font-size: 1.15rem; color: var(--primary-color); margin-bottom: 5px;">Q3: 특약 할인은 중복 적용이 불가능한가요?</h4>
+        <p style="margin-left: 10px;">
+          대부분의 특별 약정 할인은 한도 제한 없이 중복 적용이 정상적으로 기능합니다. 예를 들어 마일리지 특약과 스마트폰 내비게이션 점수 연계 할인, 자녀 양육 할인, 블랙박스 설치 감면 등을 동시에 설계하여 일제히 차감받는 방식이 보편적입니다. 각 사의 계산 단계에서 자동으로 체크 가능하니 빠짐없이 등록하시는 것이 지름길입니다.
+        </p>
+      </div>
+    </section>
+
+    <section id="links" class="external-links">
+      <h2>9. 신뢰할 수 있는 외부 공인 기관 정보처</h2>
+      <p>
+        허위 정보나 임의로 꾸며진 마케팅 문구에 현혹되지 않고 공인된 국가 기관 및 신뢰받는 산하 협회의 객관적 표준 자료를 참조하여 합리적인 계약 여부를 결정하시기 바랍니다.
+      </p>
+      <ul>
+        <li>
+          <a href="https://fine.fss.or.kr" target="_blank" rel="noopener noreferrer">
+            금융감독원 금융소비자 정보포털 파인 (공식 금융 및 특약 제도 분석 지원)
+          </a>
+        </li>
+        <li>
+          <a href="https://www.carhistory.or.kr" target="_blank" rel="noopener noreferrer">
+            보험개발원 카히스토리 (중고 차량 사고 이력 및 침수 유무, 가액 조회 공인처)
+          </a>
+        </li>
+        <li>
+          <a href="https://www.car365.go.kr" target="_blank" rel="noopener noreferrer">
+            국토교통부 자동차365 (실거래 시세 조회 및 소유권 법적 등록 절차 안내)
+          </a>
+        </li>
+        <li>
+          <a href="https://www.kca.go.kr" target="_blank" rel="noopener noreferrer">
+            한국소비자원 (자동차 계약 피해 구제 사례 및 우수 서비스 업체 검증 데이터)
+          </a>
+        </li>
+        <li>
+          <a href="https://namu.wiki/w/%EC%9E%90%EB%8F%99%EC%B0%A8%EB%B3%B4%ED%97%98" target="_blank" rel="noopener noreferrer">
+            나무위키 자동차보험 항목 (기초 구조, 대인/대물 담보 분류 개요 안내)
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>10. 함께 탐색해 볼 수 있는 관련 핵심 키워드 목록</h2>
+      <div class="keyword-cloud">
+        <span class="keyword-tag">#중고차보험료비교</span>
+        <span class="keyword-tag">#다이렉트자동차보험비교</span>
+        <span class="keyword-tag">#중고차자동차세</span>
+        <span class="keyword-tag">#보험개발원차량가액</span>
+        <span class="keyword-tag">#신규자동차보험료</span>
+        <span class="keyword-tag">#만26세보험료</span>
+        <span class="keyword-tag">#자차보험료계산</span>
+        <span class="keyword-tag">#자동차보험이벤트</span>
+        <span class="keyword-tag">#운전병경력인정</span>
+        <span class="keyword-tag">#티맵안전운전점수</span>
+        <span class="keyword-tag">#부모님지정동일1인</span>
+        <span class="keyword-tag">#단독사고자기차량손해</span>
+        <span class="keyword-tag">#대물배상한도설정</span>
+        <span class="keyword-tag">#자동차상해자기신체사고</span>
+        <span class="keyword-tag">#2026자동차보험요율</span>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+  function performInsuranceCalculation() {
+    var age = document.getElementById('driverAge').value;
+    var car = document.getElementById('carType').value;
+    var exp = document.getElementById('experience').value;
+    var accident = document.getElementById('accidentHistory').value;
+
+    if (!age || age < 18 || age > 99) {
+      alert("올바른 운전자 만 나이(18세~99세)를 입력해 주세요.");
+      return;
+    }
+
+    var baseFee = 700000;
+
+    // 나이에 따른 보정 계수
+    if (age < 21) {
+      baseFee *= 2.4;
+    } else if (age < 26) {
+      baseFee *= 1.6;
+    } else if (age < 35) {
+      baseFee *= 0.95;
+    } else {
+      baseFee *= 0.85;
+    }
+
+    // 차량 구분에 따른 계수
+    if (car === "compact") {
+      baseFee *= 0.75;
+    } else if (car === "sedan_mid") {
+      baseFee *= 1.0;
+    } else if (car === "sedan_large") {
+      baseFee *= 1.25;
+    } else if (car === "suv") {
+      baseFee *= 1.1;
+    } else if (car === "imported") {
+      baseFee *= 1.8;
+    }
+
+    // 경력에 따른 감면
+    if (exp === "0") {
+      baseFee *= 1.3;
+    } else if (exp === "1") {
+      baseFee *= 1.1;
+    } else if (exp === "3") {
+      baseFee *= 0.95;
+    } else if (exp === "5") {
+      baseFee *= 0.8;
+    }
+
+    // 사고 이력 패널티 및 할인
+    if (accident === "yes_big") {
+      baseFee *= 1.5;
+    } else if (accident === "yes_small") {
+      baseFee *= 1.15;
+    } else {
+      baseFee *= 0.9;
+    }
+
+    var calculatedAmount = Math.round(baseFee);
+    var displayAmount = calculatedAmount.toLocaleString();
+
+    document.getElementById('resultText').innerHTML = 
+      "귀하의 입력을 종합 평가한 2026년 기준 예상 중고차보험료는 연간 약 <strong>" + displayAmount + "원</strong>입니다.<br>" +
+      "다이렉트 전용 할인 혜택을 추가로 적용받을 경우 이보다 한층 더 저렴한곳을 찾아 견적 비용을 줄일 수 있습니다.";
+    
+    document.getElementById('calcResult').style.display = 'block';
+  }
+</script>
+  
